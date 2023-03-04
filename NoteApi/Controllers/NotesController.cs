@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NoteApi.Dtos;
 using NoteApi.Models;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace NoteApi.Controllers
 {
@@ -19,12 +21,21 @@ namespace NoteApi.Controllers
 
 
         [HttpGet]
+        public async Task<IActionResult> GetAllAsync() 
+        {
+            var note =await _context.Notes.OrderBy(m=>m.Title).ToListAsync();
+
+            if (note == null) return NotFound("No Notes found");
+
+
+            return Ok(note);
+        }
 
 
 
         [HttpPost]
 
-        public async Task<IActionResult> createAsync(NoteDto dto)
+        public async Task<IActionResult> CreateAsync(NoteDto dto)
         {
             Note note = new Note
             {
