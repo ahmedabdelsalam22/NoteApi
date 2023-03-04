@@ -14,5 +14,15 @@ namespace NoteApi.Controllers
         {
             _context = context;
         }
+
+
+        [HttpPost]
+
+        public async Task<IActionResult> createAsync() 
+        {
+           /// impl 
+        }
+
+
     }
 }
