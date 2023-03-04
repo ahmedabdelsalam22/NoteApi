@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NoteApi.Dtos;
 using NoteApi.Models;
 
 namespace NoteApi.Controllers
@@ -16,12 +17,17 @@ namespace NoteApi.Controllers
         }
 
 
-        [HttpPost]
+      //  [HttpPost]
 
-        public async Task<IActionResult> createAsync() 
-        {
-           /// impl 
-        }
+        //public async Task<IActionResult> createAsync(NoteDto dto) 
+        //{
+        //    Note note = new Note 
+        //    {
+        //      Id= dto.Id,
+        //      Content= dto.Content,
+        //      Title= dto.Title,
+        //    };
+        //}
 
 
     }
