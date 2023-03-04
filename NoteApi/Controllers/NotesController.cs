@@ -21,9 +21,9 @@ namespace NoteApi.Controllers
 
 
         [HttpGet("gellAllNotes")]
-        public async Task<IActionResult> GetAllAsync() 
+        public async Task<IActionResult> GetAllAsync()
         {
-            var note =await _context.Notes.OrderBy(m=>m.Title).ToListAsync();
+            var note = await _context.Notes.OrderBy(m => m.Title).ToListAsync();
 
             if (note == null) return NotFound("No Notes found");
 
@@ -48,10 +48,29 @@ namespace NoteApi.Controllers
 
             await _context.Notes.AddAsync(note);
             _context.SaveChanges();
-             return Ok(note);
+            return Ok(note);
         }
 
 
+        [HttpPut(template:"{id}")]
+        public async Task<IActionResult> UpdateAsync(int id,[FromBody]NoteDto dto) 
+        {
+          var note = await _context.Notes.FindAsync(id);
+
+            if (note == null)
+            {
+                return BadRequest("No Notes found");
+            }
+
+            note.Title = dto.Title;
+            note.Time = dto.Time;
+            note.Date = dto.Date;
+            note.Content = dto.Content;
+            
+            _context.SaveChanges();
+
+            return Ok(note) ;
+        }
 
 
     }
