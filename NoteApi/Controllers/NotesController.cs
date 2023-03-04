@@ -72,6 +72,22 @@ namespace NoteApi.Controllers
             return Ok(note) ;
         }
 
+        [HttpDelete(template:"{id}")]
+        public async Task<IActionResult> DeleteAsync(int id) 
+        {
+            var note = await _context.Notes.FindAsync(id);
+
+            if (note == null)
+            {
+                return BadRequest("No Notes found");
+            }
+
+            _context.Notes.Remove(note);    
+
+            _context.SaveChanges();
+            return Ok();
+        }
+
 
     }
 }
