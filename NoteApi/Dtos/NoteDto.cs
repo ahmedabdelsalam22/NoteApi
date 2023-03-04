@@ -8,5 +8,7 @@ namespace NoteApi.Dtos
         public string Title { get; set; }
         public string Content { get; set; }
         public DateTime NoteId { get; set; }
+        public string Date { get; set; }
+
     }
 }
