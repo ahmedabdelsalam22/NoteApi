@@ -17,17 +17,17 @@ namespace NoteApi.Controllers
         }
 
 
-      //  [HttpPost]
+        [HttpPost]
 
-        //public async Task<IActionResult> createAsync(NoteDto dto) 
-        //{
-        //    Note note = new Note 
-        //    {
-        //      Id= dto.Id,
-        //      Content= dto.Content,
-        //      Title= dto.Title,
-        //    };
-        //}
+        public async Task<IActionResult> createAsync(NoteDto dto)
+        {
+            Note note = new Note
+            {
+                Id = dto.Id,
+                Content = dto.Content,
+                Title = dto.Title,
+            };
+        }
 
 
     }
