@@ -17,6 +17,11 @@ namespace NoteApi.Controllers
         }
 
 
+
+        [HttpGet]
+
+
+
         [HttpPost]
 
         public async Task<IActionResult> createAsync(NoteDto dto)
@@ -26,8 +31,16 @@ namespace NoteApi.Controllers
                 Id = dto.Id,
                 Content = dto.Content,
                 Title = dto.Title,
+                Time = dto.Time,
+                Date = dto.Date,
             };
+
+            await _context.Notes.AddAsync(note);
+            _context.SaveChanges();
+             return Ok(note);
         }
+
+
 
 
     }
