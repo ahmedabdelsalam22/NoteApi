@@ -42,7 +42,6 @@ namespace NoteApi.Controllers
                 Id = dto.Id,
                 Content = dto.Content,
                 Title = dto.Title,
-                Time = dto.Time,
                 Date = dto.Date,
             };
 
@@ -63,7 +62,6 @@ namespace NoteApi.Controllers
             }
 
             note.Title = dto.Title;
-            note.Time = dto.Time;
             note.Date = dto.Date;
             note.Content = dto.Content;
             
