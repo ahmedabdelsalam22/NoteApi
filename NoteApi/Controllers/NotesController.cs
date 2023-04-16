@@ -20,7 +20,7 @@ namespace NoteApi.Controllers
 
 
 
-        [HttpGet("gellAllNotes")]
+        [HttpGet("getAllNotes")]
         public async Task<IActionResult> GetAllAsync()
         {
             var note = await _context.Notes.OrderBy(m => m.Title).ToListAsync();
